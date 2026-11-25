@@ -1,10 +1,12 @@
+//not able to understand
+
 function lengthOfLongestSubstring(s: string): number {
   const lastSeen = new Map<string, number>();
   let left = 0;
   let maxLen = 0;
 
-  for (let right = 0; right < s.length; right++) {
-    const char = s[right];
+  for (let i = 0; i < s.length; i++) {
+    const char = s[i];
     const prevIndex = lastSeen.get(char);
 
     // Only advance `left` if the previous occurrence lies inside the active window
@@ -12,8 +14,8 @@ function lengthOfLongestSubstring(s: string): number {
       left = prevIndex + 1;
     }
 
-    lastSeen.set(char, right);
-    maxLen = Math.max(maxLen, right - left + 1);
+    lastSeen.set(char, i);
+    maxLen = Math.max(maxLen, i - left + 1);
   }
 
   return maxLen;

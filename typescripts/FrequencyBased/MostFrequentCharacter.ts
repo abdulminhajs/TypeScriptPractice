@@ -8,7 +8,7 @@ function getMostFrequentCharObj(
   ignoreWhitespace = true
 ): MaxCharResult | null {
   // Null-prototype object avoids Object.prototype key collisions (e.g., "constructor")
-  const counts: Record<string, number> = Object.create(null);
+  const counts: Record<string, number> = {};
   let maxChar = "";
   let maxCount = 0;
 
@@ -17,7 +17,7 @@ function getMostFrequentCharObj(
       continue;
     }
 
-    const nextCount = (counts[char] ?? 0) + 1;
+    const nextCount = (counts[char] || 0) + 1;
     counts[char] = nextCount;
 
     // Strictly greater (>) keeps the first character that reaches maxCount on a tie

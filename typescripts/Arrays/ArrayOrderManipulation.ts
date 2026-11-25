@@ -1,13 +1,19 @@
 function arrayManuplation(){
     let num:number[] = [1,2,3,4,5] //output should be [5,4,1,2,3]
+    let n:number = num.length;
     let valueOfK= 3;
+    // const steps = ((valueOfK % n) + n) % n;//below notes
     let result = num.slice(valueOfK).reverse().concat(num.slice(0, valueOfK));
+   //let result = num.slice(steps).reverse().concat(num.slice(0, steps));
     console.log('arrayManuplation ' + num + ' with K value as ' + valueOfK + " => " + result);
 }
 
 arrayManuplation();
-//.................................................................
 
+//.................................................................
+//Left Rotate by 1: A left rotation moves elements towards the beginning of the array.
+//[1, 2, 3, 4, 5] ==> [3, 4, 5, 1, 2] left 2 means remove first two and add it to last
+//right roate Move the last 2 elements to the front [1, 2, 3, 4, 5] ==> [4, 5, 1, 2, 3]
 /* No modulo normalization for valueOfK: If valueOfK >= num.length (for example, valueOfK = 7 on a 5-element array), num.slice(7) returns [] and num.slice(0, 7) returns [10, 20, 30, 40, 50], 
 giving [10, 20, 30, 40, 50] instead of rotating by 7 % 5 = 2 to get [30, 40, 50, 10, 20].
 
@@ -62,19 +68,4 @@ const original = [0, 1, 0, 3, 12];
 const resultOfZeroWithShiftedToEnd = moveZeroToEnd(original);
 console.log('moveZeroToEnd ' + original +  " => " + resultOfZeroWithShiftedToEnd);
 
-
-//console.log(resultOfZeroWithShiftedToEnd);   // [1, 3, 12, 0, 0]
-//console.log(original);
-
-//.......................................................
-
-function rotateElementWithGivenK(num: number[], k:number): number[]{
-    const resultOfKValueShifting = num.slice(k).concat(num.slice(0,k));
-    return resultOfKValueShifting;
-}
-
-//console.log('rotateElementWithGivenK: ' +//);
-let array = [10, 20, 30, 40, 50];
-let valueOfKForRotate = 2
-const resultOfRotate =  rotateElementWithGivenK(array, valueOfKForRotate);
- console.log('rotateElementWithGivenK ' + array + ' with K value as' + valueOfKForRotate + " => " + result);
+  

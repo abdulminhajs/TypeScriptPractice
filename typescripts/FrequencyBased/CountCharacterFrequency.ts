@@ -15,11 +15,21 @@ CountCharacterFrequency("Minhajninnu");
 //.............Word Frequency
 function wordFrequency(sentence: string): Record<string, number> {
   const freq: Record<string, number> = {};
-  const words = sentence.toLowerCase();
+  const words = sentence.toLowerCase().replace(/[^\w\s]/g, "").split(" ");
   for (const word of words) {
-    freq[word] = (freq[word] ?? 0) + 1;
+    freq[word] = (freq[word] || 0) + 1;
   }
   return freq;
 }
 
-// Example: wordFrequency("To be, or not to be.") -> { to: 2, be: 2, or: 1, not: 1 }
+ console.log(wordFrequency("To be, or not to be.")); 
+ //{ to: 2, be: 2, or: 1, not: 1 }
+
+ /* 
+[] → character set
+^ → NOT
+\w → word characters (a-z, A-Z, 0-9, _)
+\s → whitespace (space, tab, newline)
+/g → global (replace all matches)
+
+*/

@@ -19,11 +19,11 @@ function hasPair(
 
 console.log(hasPair([2,7,11,15], 9));
 
-function removeDuplicates(arr: number[]): number[]{
+function removeDuplicates1(arr: number[]): number[]{
     const uniqueArray = [... new Set(arr)] 
     return uniqueArray;
 }
-console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); // [1, 2, 3, 4, 5]
+console.log(removeDuplicates1([1, 2, 2, 3, 4, 4, 5])); // [1, 2, 3, 4, 5]
 
 function removeDuplicateChars(str: string): string {
     return [...new Set(str)].join("");

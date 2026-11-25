@@ -9,12 +9,12 @@ function isStringRotation(original: string, rotated: string, caseSensitive = tru
     return true;
   }
 
-  const base = caseSensitive ? original : original.toLowerCase();
-  const target = caseSensitive ? rotated : rotated.toLowerCase();
+ // const base = caseSensitive ? original : original.toLowerCase();
+ // const target = caseSensitive ? rotated : rotated.toLowerCase();
+//
+  //return (base + base).includes(target);
 
-  return (base + base).includes(target);
-
-  /* 
+  
   let base: string;
   if (caseSensitive) {
     base = original;
@@ -29,7 +29,11 @@ function isStringRotation(original: string, rotated: string, caseSensitive = tru
     target = rotated.toLowerCase();
   }
 
-  return (base + base).includes(target); */
+  return (base + base).includes(target);
+  /* ex AbdulMinhaj + AbdulMinhaj => AbdulMinhajAbdulMinhaj
+  now we are checking MinhajAbdul is included in AbdulMinhajAbdulMinhaj => Abdul MinhajAbdul Minhaj
+  
+  */
 }
 
 // Examples

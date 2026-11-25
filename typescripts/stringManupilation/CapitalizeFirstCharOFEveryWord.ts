@@ -6,7 +6,7 @@ function CapitalizeFirstCharOFEveryWord(str: string){
      
 
     for(const word of words){
-       const capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
+       const capitalizedWord = word.charAt(0).toUpperCase().concat(word.slice(1));
         
         sentance.push(capitalizedWord);
         

@@ -1,6 +1,6 @@
 function secondLargest(arr: number[]): number | null {
-    let largest = Number.MIN_VALUE;
-    let secondLargest = Number.MIN_VALUE;
+    let largest = -Infinity;
+    let secondLargest = -Infinity;
 
     for (const num of arr) {
         if (num > largest) {
@@ -20,7 +20,7 @@ console.log(secondLargest([10, 5, 20, 8, 20]));
 
 function secondSmallest(arr: number[]): number {
 
-    let smallest = Infinity;
+    let smallest =   Infinity;
     let secondSmallest = Infinity;
 
     for (const num of arr) {
@@ -29,10 +29,7 @@ function secondSmallest(arr: number[]): number {
             secondSmallest = smallest;
             smallest = num;
         }
-        else if (
-            num < secondSmallest &&
-            num !== smallest
-        ) {
+        else if (num < secondSmallest && num !== smallest) {
             secondSmallest = num;
         }
     }

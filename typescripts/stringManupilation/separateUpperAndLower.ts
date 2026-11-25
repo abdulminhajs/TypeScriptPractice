@@ -1,18 +1,16 @@
-function separateUpperAndLower(str: string){
+function separateLetters(sentence: string) {
+    const upperCase: string[] = [];
+    const lowerCase: string[] = [];
 
-    let upperCase:string =  "";
-    let lowerCase:string =  "";
-    for(const ch of str ){
-
-        if(ch === ch.toUpperCase()){
-            upperCase = upperCase + ch
-        } else {
-             lowerCase = lowerCase + ch
+    for (const char of sentence) {
+        if (/[A-Z]/.test(char)) {
+            upperCase.push(char);
+        } else if (/[a-z]/.test(char)) {
+            lowerCase.push(char);
         }
-
     }
-    console.log(upperCase);
-    console.log(lowerCase);
+
+    return { upperCase, lowerCase };
 }
 
-separateUpperAndLower("MinhajAbdul");
+console.log(separateLetters("HeLLo WoRLd"));
